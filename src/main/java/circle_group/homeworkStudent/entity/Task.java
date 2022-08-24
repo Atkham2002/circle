@@ -22,7 +22,7 @@ public class Task {
 
     private String body;
 
-    @ManyToMany(mappedBy = "task")
+    @OneToMany(mappedBy = "task")
     private List<StudentHomework> homeworks;
 
     private String comment;

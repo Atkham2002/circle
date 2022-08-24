@@ -21,11 +21,10 @@ public class StudentHomework {
     @SequenceGenerator(name = "student_homework_generator", sequenceName = "student_homework_id_seq", allocationSize = 1)
     private Integer id;
 
-    @ManyToMany(mappedBy = "homework")
-    private List<Student> student;
+    @ManyToOne
+    private Student student;
 
-    @ManyToMany(mappedBy = "homework")
-    private List<Task> task;
-
+    @ManyToOne
+    private Task task;
     private Integer overall;
 }

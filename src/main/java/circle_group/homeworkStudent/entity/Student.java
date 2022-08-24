@@ -21,6 +21,6 @@ public class Student {
     @Column(name = "phone_number")
     private String phoneNumber;
 
-    @ManyToMany(mappedBy = "student")
+    @OneToMany(mappedBy = "student")
     private List<StudentHomework> homework;
 }
