@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Data
@@ -22,4 +23,6 @@ public class Student {
     @Column(name = "phone_number")
     private String phoneNumber;
 
+    @ManyToMany(mappedBy = "student")
+    private List<StudentHomework> homework;
 }
