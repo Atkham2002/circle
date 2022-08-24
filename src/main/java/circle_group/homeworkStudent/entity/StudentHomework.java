@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "student_homework")
@@ -20,9 +21,11 @@ public class StudentHomework {
     @SequenceGenerator(name = "student_homework_generator", sequenceName = "student_homework_id_seq", allocationSize = 1)
     private Integer id;
 
-    private Student student;
+    @ManyToMany(mappedBy = "homework")
+    private List<Student> student;
 
-    private Task task;
+    @ManyToMany(mappedBy = "homework")
+    private List<Task> task;
 
     private Integer overall;
 }
