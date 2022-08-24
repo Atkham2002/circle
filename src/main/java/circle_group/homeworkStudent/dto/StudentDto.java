@@ -5,20 +5,12 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Builder
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ResponseDto<T> {
-
-    private Integer code;
-
-    private Boolean success;
-
-    private String message;
-
-    private T data;
-
-
-
+public class StudentDto {
+    private Integer id;
+    private String name;
+    private String phoneNumber;
 }
