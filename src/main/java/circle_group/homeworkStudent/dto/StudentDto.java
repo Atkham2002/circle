@@ -1,9 +1,12 @@
 package circle_group.homeworkStudent.dto;
 
+import circle_group.homeworkStudent.entity.StudentHomework;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Data
 @Builder
@@ -13,4 +16,15 @@ public class StudentDto {
     private Integer id;
     private String name;
     private String phoneNumber;
+    private List<StudentHomework> homeworks;
+
+    @Override
+    public String toString() {
+        return "StudentDto{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", homeworks=" + homeworks +
+                '}';
+    }
 }

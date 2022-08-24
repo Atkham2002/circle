@@ -9,8 +9,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ResponseDto<T> {
 
+public class ResponseDto<T> {
     private Integer code;
 
     private Boolean success;
@@ -18,7 +18,4 @@ public class ResponseDto<T> {
     private String message;
 
     private T data;
-
-
-
 }
