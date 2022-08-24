@@ -1,4 +1,10 @@
 package circle_group.homeworkStudent.service.impl;
 
-public class TaskImpl {
+import circle_group.homeworkStudent.service.TaskService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+
+@Service
+@RequiredArgsConstructor
+public class TaskImpl implements TaskService {
 }

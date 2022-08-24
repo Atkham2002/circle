@@ -20,7 +20,7 @@ public class Student {
     private String name;
     @Column(name = "phone_number")
     private String phoneNumber;
-
-    @OneToMany(mappedBy = "student")
-    private List<StudentHomework> homework;
+//
+//    @OneToMany(mappedBy = "student")
+//    private List<StudentHomework> homework;
 }

@@ -26,5 +26,6 @@ public class StudentHomework {
 
     @ManyToOne
     private Task task;
+
     private Integer overall;
 }

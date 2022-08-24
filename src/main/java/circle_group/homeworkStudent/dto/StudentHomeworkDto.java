@@ -12,9 +12,9 @@ public class StudentHomeworkDto {
 
     private Integer id;
 
-    private List<StudentDto> studentDtoList;
+    private StudentDto studentDto;
 
-    private List<TaskDto> taskDtoList;
+    private TaskDto taskDto;
 
     private Integer overall;
 }
