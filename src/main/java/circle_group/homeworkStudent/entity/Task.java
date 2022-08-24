@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @Builder
@@ -19,8 +20,10 @@ public class Task {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-//    @ManyToMany()
     private String body;
+
+    @ManyToMany(mappedBy = "task")
+    private List<StudentHomework> homeworks;
 
     private String comment;
 
