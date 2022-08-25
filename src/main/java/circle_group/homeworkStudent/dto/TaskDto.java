@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
@@ -15,13 +16,13 @@ import java.util.List;
 @AllArgsConstructor
 public class TaskDto {
 
-    @NotNull(message = "bo'sh maydon")
+    @NotBlank(message = "bo'sh maydon")
     @Min(message = "manfiy qiymat", value = 0)
     private Integer id;
 
-    @NotNull(message = "bo'sh maydon")
+    @NotBlank(message = "bo'sh maydon")
     private String body;
 
-    @NotNull(message = "bo'sh maydon")
+    @NotBlank(message = "bo'sh maydon")
     private String comment;
 }
