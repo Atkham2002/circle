@@ -33,7 +33,7 @@ public class StudentHomeworkExcelServiceImpl implements StudentHomeworkExcelServ
 
         for (int i = rowNum; i < taskDtoList.size(); i++) {
             header = sheet.createRow(i++);
-            header.createCell(i).setCellValue("Vazifa-" + i);
+            header.createCell(i).setCellValue("Vazifa-" + i); // -> Sardor man shu forni ichi xatoketkan
             header.createCell(i).setCellValue("Izoh-" + i + "V");
         }
 
