@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Builder
 @Data
 @NoArgsConstructor
@@ -18,4 +20,5 @@ public class ResponseDto<T> {
     private String message;
 
     private T data;
+    private List<ValidatorDto> errors;
 }
