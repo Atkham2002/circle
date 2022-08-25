@@ -25,7 +25,7 @@ public class TaskImpl implements TaskService {
             return ResponseDto.builder().success(true).message("successfully saved").code(200).build();
 
         }catch (Exception e){
-            return ResponseDto.builder().code(404).message(e.getMessage()).success(false).build();
+            return ResponseDto.builder().code(-3).message(e.getMessage()).success(false).build();
         }
     }
 
