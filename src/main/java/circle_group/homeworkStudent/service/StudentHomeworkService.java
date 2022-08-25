@@ -10,7 +10,9 @@ import java.util.List;
 public interface StudentHomeworkService {
 
     ResponseDto<StudentHomeworkDto> addNewStudentHomework(StudentHomeworkDto studentHomeworkDto);
-    ResponseDto<Page<StudentHomeworkDto>> getAllStudentHomeworks();
+    ResponseDto<Page<StudentHomeworkDto>> getAllStudentHomeworks(Integer page, Integer size);
+
+    ResponseDto<String> setStudentHomeworkToExcel();
 
     ResponseDto<StudentHomeworkDto> getStudentHomeworkById(Integer id);
 

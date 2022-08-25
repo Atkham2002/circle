@@ -16,15 +16,5 @@ public class StudentDto {
     private Integer id;
     private String name;
     private String phoneNumber;
-    private List<StudentHomework> homeworks;
 
-    @Override
-    public String toString() {
-        return "StudentDto{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", homeworks=" + homeworks +
-                '}';
-    }
 }

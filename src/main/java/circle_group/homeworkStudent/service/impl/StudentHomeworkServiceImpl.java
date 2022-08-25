@@ -1,6 +1,7 @@
 package circle_group.homeworkStudent.service.impl;
 
 import circle_group.homeworkStudent.dto.ResponseDto;
+import circle_group.homeworkStudent.dto.StudentDto;
 import circle_group.homeworkStudent.dto.StudentHomeworkDto;
 import circle_group.homeworkStudent.entity.StudentHomework;
 import circle_group.homeworkStudent.repository.StudentHomeworkRepository;
@@ -10,6 +11,7 @@ import circle_group.homeworkStudent.service.StudentHomeworkService;
 import circle_group.homeworkStudent.service.mapper.StudentHomeworkMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -26,6 +28,7 @@ public class StudentHomeworkServiceImpl implements StudentHomeworkService {
 
     @Override
     public ResponseDto<StudentHomeworkDto> addNewStudentHomework(StudentHomeworkDto studentHomeworkDto) {
+        System.out.println(studentHomeworkDto);
         String result = checkStudentAndTask(studentHomeworkDto);
         if (result.equals("Student is not exists") || result.equals("Task is not exists")){
             return ResponseDto.<StudentHomeworkDto>builder()
@@ -45,7 +48,28 @@ public class StudentHomeworkServiceImpl implements StudentHomeworkService {
     }
 
     @Override
-    public ResponseDto<Page<StudentHomeworkDto>> getAllStudentHomeworks() {
+    public ResponseDto<Page<StudentHomeworkDto>> getAllStudentHomeworks(Integer page, Integer size) {
+        if(page == null || size == null){
+            return ResponseDto.<Page<StudentHomeworkDto>>builder()
+                    .code(-2).success(false).message("Page or size is not given!").build();
+        }
+        if(page < 0 || size < 0){
+            return ResponseDto.<Page<StudentHomeworkDto>>builder()
+                    .code(-2).success(false).message("Page or size is below from 0").build();
+        }
+        PageRequest request = PageRequest.of(page, size);
+        Page<StudentHomeworkDto> pageNation = studentHomeworkRepository.findAll(request).map(studentHomeworkMapper::toDto);
+
+        return ResponseDto.<Page<StudentHomeworkDto>>builder()
+                .code(1).success(true).message("OK").data(pageNation).build();
+    }
+
+    @Override
+    public ResponseDto<String> setStudentHomeworkToExcel() {
+
+
+
+
         return null;
     }
 
