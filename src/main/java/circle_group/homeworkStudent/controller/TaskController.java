@@ -6,6 +6,8 @@ import circle_group.homeworkStudent.service.TaskService;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping(name = "task")
 public class TaskController {
@@ -18,7 +20,7 @@ public class TaskController {
 
 
     @PostMapping
-    public ResponseDto<Object> addTask(@RequestBody TaskDto taskDto){
+    public ResponseDto<Object> addTask(@Valid @RequestBody TaskDto taskDto){
         return taskService.addTask(taskDto);
     }
 
