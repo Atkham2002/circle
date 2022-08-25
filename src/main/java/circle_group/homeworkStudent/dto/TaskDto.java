@@ -15,7 +15,5 @@ public class TaskDto {
     private Integer id;
     private String body;
 
-    private List<StudentHomeworkDto> homeworks;
-
     private String comment;
 }
