@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Data
@@ -12,8 +13,13 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class TaskDto {
+
+    @NotNull
     private Integer id;
+
+    @NotNull
     private String body;
 
+    @NotNull
     private String comment;
 }

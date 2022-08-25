@@ -8,11 +8,11 @@ import org.springframework.util.MultiValueMap;
 
 public interface TaskService {
 
-    ResponseDto<String> addTask(TaskDto taskDto);
+    ResponseDto<Object> addTask(TaskDto taskDto);
 
     ResponseDto<TaskDto> getById(Integer id);
 
-    ResponseDto<Page<TaskDto>> getAll();
+    ResponseDto<Page<TaskDto>> getAll(Integer page, Integer size);
 
     ResponseDto<TaskDto> updateTask(TaskDto taskDto);
 

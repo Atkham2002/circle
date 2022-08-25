@@ -5,6 +5,7 @@ import circle_group.homeworkStudent.dto.TaskDto;
 import circle_group.homeworkStudent.entity.Task;
 import circle_group.homeworkStudent.repository.TaskRepository;
 import circle_group.homeworkStudent.service.TaskService;
+import circle_group.homeworkStudent.service.mapper.TaskMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
@@ -15,10 +16,17 @@ import org.springframework.util.MultiValueMap;
 public class TaskImpl implements TaskService {
 
     private final TaskRepository taskRepository;
+    private final TaskMapper taskMapper;
 
     @Override
-    public ResponseDto<String> addTask(TaskDto taskDto) {
-        return null;
+    public ResponseDto<Object> addTask(TaskDto taskDto) {
+        try {
+            taskRepository.save(taskMapper.toEntity(taskDto));
+            return ResponseDto.builder().success(true).message("successfully saved").code(200).build();
+
+        }catch (Exception e){
+            return ResponseDto.builder().code(404).message(e.getMessage()).success(false).build();
+        }
     }
 
     @Override
@@ -27,7 +35,7 @@ public class TaskImpl implements TaskService {
     }
 
     @Override
-    public ResponseDto<Page<TaskDto>> getAll() {
+    public ResponseDto<Page<TaskDto>> getAll(Integer page,Integer size) {
         return null;
     }
 
