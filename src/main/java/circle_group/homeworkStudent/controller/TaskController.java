@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping(name = "task")
+@RequestMapping("/task")
 public class TaskController {
 
     private final TaskService taskService;

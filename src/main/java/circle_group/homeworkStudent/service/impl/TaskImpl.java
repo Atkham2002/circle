@@ -6,6 +6,7 @@ import circle_group.homeworkStudent.entity.Task;
 import circle_group.homeworkStudent.repository.TaskRepository;
 import circle_group.homeworkStudent.service.TaskService;
 import circle_group.homeworkStudent.service.mapper.TaskMapper;
+import circle_group.homeworkStudent.service.mapper.TaskMapperImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
@@ -21,8 +22,8 @@ public class TaskImpl implements TaskService {
     @Override
     public ResponseDto<Object> addTask(TaskDto taskDto) {
         try {
-            taskRepository.save(taskMapper.toEntity(taskDto));
-            return ResponseDto.builder().success(true).message("successfully saved").code(200).build();
+            Task task = taskRepository.save(taskMapper.toEntity(taskDto));
+            return ResponseDto.builder().success(true).message("successfully saved").code(200).data(taskMapper.toDto(task)).build();
 
         }catch (Exception e){
             return ResponseDto.builder().code(-3).message(e.getMessage()).success(false).build();

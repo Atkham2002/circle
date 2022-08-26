@@ -25,4 +25,7 @@ public class TaskDto {
 
     @NotBlank(message = "bo'sh maydon")
     private String comment;
+//
+//    private List<StudentHomeworkDto>homeworkDtos;
+
 }

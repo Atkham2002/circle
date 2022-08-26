@@ -5,6 +5,7 @@ import circle_group.homeworkStudent.dto.StudentHomeworkDto;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 public interface StudentHomeworkService {
@@ -12,7 +13,7 @@ public interface StudentHomeworkService {
     ResponseDto<StudentHomeworkDto> addNewStudentHomework(StudentHomeworkDto studentHomeworkDto);
     ResponseDto<Page<StudentHomeworkDto>> getAllStudentHomeworks(Integer page, Integer size);
 
-    ResponseDto<String> setStudentHomeworkToExcel();
+    ResponseDto<String> setStudentHomeworkToExcel(HttpServletResponse response);
 
     ResponseDto<StudentHomeworkDto> getStudentHomeworkById(Integer id);
 

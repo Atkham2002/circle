@@ -22,9 +22,11 @@ public class StudentHomework {
     private Integer id;
 
     @ManyToOne
+    @JoinColumn(name = "student_id")
     private Student student;
 
     @ManyToOne
+    @JoinColumn(name = "task_id")
     private Task task;
 
     private Integer overall;

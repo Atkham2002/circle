@@ -66,8 +66,8 @@ public class StudentImpl implements StudentService {
         if(!errors.isEmpty()){
             return ResponseDto.builder().errors(errors).data("Validator errors").success(false).code(-2).build();
         }
-        studentRepository.save(studentMapper.toEntity(studentDto));
-        return ResponseDto.builder().code(2).message("ok").success(true).data(studentDto).build();
+        Student student = studentRepository.save(studentMapper.toEntity(studentDto));
+        return ResponseDto.builder().code(2).message("ok").success(true).data(studentMapper.toDto(student)).build();
 
     }
 
